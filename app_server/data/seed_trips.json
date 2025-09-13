@@ -1,0 +1,31 @@
+{
+  "trips": [
+    {
+      "title": "Paris Adventure",
+      "location": "Paris, France",
+      "description": "Explore the Eiffel Tower and Louvre Museum.",
+      "startDate": "2025-12-01",
+      "endDate": "2025-12-10",
+      "price": 2000,
+      "seatsAvailable": 20
+    },
+    {
+      "title": "Tokyo Explorer",
+      "location": "Tokyo, Japan",
+      "description": "Experience Shibuya Crossing and Mt. Fuji.",
+      "startDate": "2026-01-15",
+      "endDate": "2026-01-25",
+      "price": 2500,
+      "seatsAvailable": 15
+    },
+    {
+      "title": "Sydney Highlights",
+      "location": "Sydney, Australia",
+      "description": "Visit the Opera House and Bondi Beach.",
+      "startDate": "2026-03-01",
+      "endDate": "2026-03-10",
+      "price": 2200,
+      "seatsAvailable": 10
+    }
+  ]
+}
