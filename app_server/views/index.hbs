@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{title}}</title>
+</head>
+<body>
+  <h1>Welcome to {{title}}</h1>
+  <h2>Discover Featured Trips</h2>
+  <ul>
+    {{#each trips}}
+      <li><strong>{{this.title}}</strong>: {{this.description}}</li>
+    {{/each}}
+  </ul>
+</body>
+</html>

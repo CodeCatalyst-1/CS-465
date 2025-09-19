@@ -1,16 +1,36 @@
-{{> header}}
+﻿<section>
+  <h2>Available Packages</h2>
 
-<h1>{{title}}</h1>
+  <form id="searchForm">
+    <input type="text" name="location" placeholder="Location (e.g. Paris)" />
+    <input type="number" name="maxPrice" placeholder="Max price" />
+    <button type="submit">Search</button>
+  </form>
 
-<ul>
-  {{#each packages}}
-    <li>
-      <h3>{{this.title}}</h3>
-      <p>{{this.location}}</p>
-      <p>{{this.description}}</p>
-      <p>Price: ${{this.price}}</p>
-    </li>
-  {{/each}}
-</ul>
+  <div id="packageList">
+    {{#each packages}}
+      <div class="package">
+        <h3>{{this.title}}</h3>
+        <p>{{this.location}} — ${{this.price}}</p>
+        <p>{{this.description}}</p>
+      </div>
+    {{/each}}
+  </div>
+</section>
 
-{{> footer}}
+<script>
+document.getElementById('searchForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const params = new URLSearchParams(new FormData(e.target));
+  const res = await fetch('/api/search?' + params.toString());
+  const results = await res.json();
+  const list = document.getElementById('packageList');
+  list.innerHTML = '';
+  results.forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'package';
+    el.innerHTML = `<h3>${p.title}</h3><p>${p.location} — $${p.price}</p><p>${p.description}</p>`;
+    list.appendChild(el);
+  });
+});
+</script>

@@ -1,17 +1,18 @@
-{{> header}}
+﻿<section class="hero">
+  <h2>Welcome to Travlr Getaways</h2>
+  <p>Discover featured trips.</p>
+</section>
 
-<h1>{{title}}</h1>
-
-<h2>Featured Trips</h2>
-<ul>
-  {{#each featured}}
-    <li>
-      <h3>{{this.title}}</h3>
-      <p>{{this.location}}</p>
-      <p>{{this.description}}</p>
-      <p>Price: ${{this.price}}</p>
-    </li>
-  {{/each}}
-</ul>
-
-{{> footer}}
+<section class="featured">
+  <h3>Featured Trips</h3>
+  <div class="cards">
+    {{#each featured}}
+      <article class="card">
+        <h4>{{this.title}}</h4>
+        <p><strong>Location:</strong> {{this.location}}</p>
+        <p>{{this.description}}</p>
+        <p><strong>Price:</strong> ${{this.price}}</p>
+      </article>
+    {{/each}}
+  </div>
+</section>

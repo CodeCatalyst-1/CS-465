@@ -1,0 +1,34 @@
+﻿{
+  "trips": [
+    {
+      "id": "trip1",
+      "title": "Ecuador Highlands Adventure",
+      "location": "Quito, Ecuador",
+      "description": "7-day hiking and cultural trip in the Ecuadorian Andes.",
+      "startDate": "2025-10-01",
+      "endDate": "2025-10-08",
+      "price": 1299,
+      "seatsAvailable": 12
+    },
+    {
+      "id": "trip2",
+      "title": "Paris City Escape",
+      "location": "Paris, France",
+      "description": "5-day romantic getaway with museum passes and Seine cruise.",
+      "startDate": "2025-12-10",
+      "endDate": "2025-12-15",
+      "price": 1899,
+      "seatsAvailable": 8
+    },
+    {
+      "id": "trip3",
+      "title": "Bali Relax & Yoga",
+      "location": "Bali, Indonesia",
+      "description": "8 days of beaches, yoga, and local cuisines.",
+      "startDate": "2026-01-06",
+      "endDate": "2026-01-14",
+      "price": 1499,
+      "seatsAvailable": 10
+    }
+  ]
+}
