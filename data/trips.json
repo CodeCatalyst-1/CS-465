@@ -1,0 +1,26 @@
+[
+  {
+    "destination": "Hawaii",
+    "price": 1500,
+    "duration": 7,
+    "description": "A tropical getaway in Hawaii with beaches and surfing.",
+    "imageUrl": "https://example.com/images/hawaii.jpg",
+    "available": true
+  },
+  {
+    "destination": "Paris",
+    "price": 2000,
+    "duration": 5,
+    "description": "Explore the romantic city of Paris and visit the Eiffel Tower.",
+    "imageUrl": "https://example.com/images/paris.jpg",
+    "available": true
+  },
+  {
+    "destination": "Tokyo",
+    "price": 2500,
+    "duration": 6,
+    "description": "Experience Japan's vibrant culture and delicious cuisine.",
+    "imageUrl": "https://example.com/images/tokyo.jpg",
+    "available": true
+  }
+]

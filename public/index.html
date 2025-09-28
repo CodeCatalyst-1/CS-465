@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travlr Getaways</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { font-size: 2em; }
+        .trip { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+        .trip img { max-width: 200px; }
+    </style>
+</head>
+<body>
+    <h1>Travlr Getaways</h1>
+    <div id="trips-container"></div>
+
+    <script>
+        async function loadTrips() {
+            try {
+                const response = await fetch('/api/trips');
+                const trips = await response.json();
+                const container = document.getElementById('trips-container');
+                container.innerHTML = '';
+
+                trips.forEach(trip => {
+                    const tripDiv = document.createElement('div');
+                    tripDiv.className = 'trip';
+                    tripDiv.innerHTML = `
+                        <h2>${trip.destination} - $${trip.price}</h2>
+                        <p>Duration: ${trip.duration} days</p>
+                        <p>${trip.description}</p>
+                        <img src="${trip.imageUrl}" alt="${trip.destination}">
+                    `;
+                    container.appendChild(tripDiv);
+                });
+            } catch (err) {
+                console.error('Error loading trips:', err);
+            }
+        }
+
+        loadTrips();
+    </script>
+</body>
+</html>
