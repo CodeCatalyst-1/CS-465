@@ -4,40 +4,42 @@
     <meta charset="UTF-8">
     <title>Travlr Getaways</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h1 { font-size: 2em; }
-        .trip { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
-        .trip img { max-width: 200px; }
+        body { font-family: Arial, margin: 20px; }
+        .trip { border: 1px solid #ccc; padding: 12px; margin-bottom: 10px; width: 320px; }
+        .trip img { max-width: 100%; height: auto; }
     </style>
 </head>
 <body>
     <h1>Travlr Getaways</h1>
-    <div id="trips-container"></div>
+    <div id="trips-container">Loading trips...</div>
 
     <script>
         async function loadTrips() {
             try {
-                const response = await fetch('/api/trips');
-                const trips = await response.json();
-                const container = document.getElementById('trips-container');
-                container.innerHTML = '';
-
-                trips.forEach(trip => {
-                    const tripDiv = document.createElement('div');
-                    tripDiv.className = 'trip';
-                    tripDiv.innerHTML = `
-                        <h2>${trip.destination} - $${trip.price}</h2>
-                        <p>Duration: ${trip.duration} days</p>
-                        <p>${trip.description}</p>
-                        <img src="${trip.imageUrl}" alt="${trip.destination}">
+                const resp = await fetch("/API/trips");
+                const trips = await resp.json();
+                const container = document.getElementById("trips-container");
+                container.innerHTML = "";
+                if (!trips || trips.length === 0) {
+                    container.innerHTML = "<p>No trips found. Use /API/populate to add sample trips.</p>";
+                    return;
+                }
+                trips.forEach(t => {
+                    const card = document.createElement("div");
+                    card.className = "trip";
+                    card.innerHTML = `
+                        <img src="${t.imageUrl}" alt="${t.destination}" />
+                        <h2>${t.destination} - $${t.price}</h2>
+                        <p>${t.description}</p>
+                        <p>Duration: ${t.duration} days</p>
                     `;
-                    container.appendChild(tripDiv);
+                    container.appendChild(card);
                 });
             } catch (err) {
-                console.error('Error loading trips:', err);
+                document.getElementById("trips-container").textContent = "Error loading trips.";
+                console.error(err);
             }
         }
-
         loadTrips();
     </script>
 </body>
