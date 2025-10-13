@@ -1,0 +1,10 @@
+<div class='card'>
+    <img [src]='trip.imageUrl' class='card-img-top' alt='{{ trip.name }}'>
+    <div class='card-body'>
+        <h5 class='card-title'>{{ trip.name }}</h5>
+        <p class='card-text'>{{ trip.location }}</p>
+        <p class='card-text'>{{ trip.description }}</p>
+        <p class='card-text'><strong>Duration:</strong> {{ trip.duration }} days</p>
+        <p class='card-text'><strong>Price:</strong> ${{ trip.price }}</p>
+    </div>
+</div>
