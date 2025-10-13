@@ -1,27 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Trip } from '../../services/trip-data';
-import { TripService } from '../../services/trip-service';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TripCardComponent } from '../trip-card/trip-card.component';
-import {  } from '../trip-edit/trip-edit.component';
+import { RouterModule } from '@angular/router';
+import { TRIPS } from './trip-list-data';
 
 @Component({
-  selector: 'app-trip-list',
-  templateUrl: './trip-list.component.html',
-  styleUrls: ['./trip-list.component.css'],
-  standalone: true,
-  imports: [CommonModule, TripCardComponent, ]
+    selector: 'app-trip-list',
+    standalone: true,
+    imports: [CommonModule, RouterModule],
+    templateUrl: './trip-list.component.html'
 })
-export class TripListComponent implements OnInit {
-  trips: Trip[] = [];
-  errorMessage = '';
-
-  constructor(private tripService: TripService) {}
-
-  ngOnInit(): void {
-    this.tripService.getTrips().subscribe({
-      next: trips => this.trips = trips,
-      error: err => this.errorMessage = err
-    });
-  }
+export class TripListComponent {
+    trips = TRIPS;
 }

@@ -1,7 +1,9 @@
-<div *ngIf='errorMessage' class='alert alert-danger'>{{ errorMessage }}</div>
-
-<div class='row'>
-  <div *ngFor='let trip of trips' class='col-md-4 mb-4'>
-    <app-trip-card [trip]='trip'></app-trip-card>
-  </div>
+<div *ngFor='let trip of trips'>
+  <h2>{{ trip.name }}</h2>
+  <p>{{ trip.location }}</p>
+  <p>{{ trip.description }}</p>
+  <p>Duration: {{ trip.duration }} days</p>
+  <p>Price: ${{ trip.price }}</p>
+  <button [routerLink]="['/edit', trip._id]">Edit</button>
+  <hr>
 </div>

@@ -3,16 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
-import { TripListComponent } from './components/trip-list/trip-list.component';
-import { TripEditScreenComponent } from './components/trip-edit-screen/trip-edit-screen.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    AppComponent,
-    TripListComponent,
-    TripEditScreenComponent
+    AppComponent
   ],
   bootstrap: [AppComponent]
 })
