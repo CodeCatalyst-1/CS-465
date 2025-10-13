@@ -1,0 +1,13 @@
+<form *ngIf='trip'>
+  <label>Name:</label>
+  <input [(ngModel)]='trip.name' />
+  <label>Location:</label>
+  <input [(ngModel)]='trip.location' />
+  <label>Price:</label>
+  <input [(ngModel)]='trip.price' type='number' />
+  <label>Description:</label>
+  <input [(ngModel)]='trip.description' />
+  <label>Duration:</label>
+  <input [(ngModel)]='trip.duration' type='number' />
+  <button type='button'>Update</button>
+</form>
